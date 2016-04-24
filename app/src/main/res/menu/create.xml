@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/menu_group">
+
+        <item
+            android:id="@+id/create"
+            android:title="Create"/>
+        <item
+            android:id="@+id/just"
+            android:title="Just"/>
+        <item
+            android:id="@+id/from"
+            android:title="From"/>
+        <item
+            android:id="@+id/defer"
+            android:title="Defer"/>
+        <item
+            android:id="@+id/interval"
+            android:title="Interval"/>
+        <item
+            android:id="@+id/repeat"
+            android:title="Repeat"/>
+        <item
+            android:id="@+id/range"
+            android:title="Range"/>
+    </group>
+</menu>
