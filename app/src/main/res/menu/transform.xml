@@ -13,7 +13,7 @@
             android:id="@+id/flat_map"
             android:title="FlatMap"/>
         <item
-            android:id="@+id/Scan"
+            android:id="@+id/scan"
             android:title="Scan"/>
         <item
             android:id="@+id/window"

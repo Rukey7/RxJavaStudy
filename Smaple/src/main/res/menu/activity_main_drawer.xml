@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_create"
+            android:checked="true"
+            android:title="Creating"/>
+        <item
+            android:id="@+id/nav_transforming"
+            android:title="Transforming"/>
+        <item
+            android:id="@+id/nav_filtering"
+            android:title="Filtering"/>
+        <item
+            android:id="@+id/nav_combining"
+            android:title="Combining"/>
+        <item
+            android:id="@+id/nav_error_handling"
+            android:title="Error Handling"/>
+        <item
+            android:id="@+id/nav_utility"
+            android:title="Utility"/>
+        <item
+            android:id="@+id/nav_conditional"
+            android:title="Conditional"/>
+        <item
+            android:id="@+id/nav_mathematical"
+            android:title="Mathematical"/>
+        <item
+            android:id="@+id/nav_connect"
+            android:title="Connect"/>
+        <item
+            android:id="@+id/nav_async"
+            android:title="Async"/>
+        <item
+            android:id="@+id/nav_convert"
+            android:title="Convert"/>
+        <item
+            android:id="@+id/nav_blocking"
+            android:title="Blocking"/>
+    </group>
+</menu>

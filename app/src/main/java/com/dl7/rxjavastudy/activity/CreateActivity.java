@@ -21,6 +21,7 @@ import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Func0;
 import rx.functions.Func1;
+import rx.functions.Func2;
 
 public class CreateActivity extends BaseActivity {
 
@@ -107,50 +108,58 @@ public class CreateActivity extends BaseActivity {
                 "RxJava将这个操作符实现为repeat方法。它不是创建一个Observable，而是重复发射原始Observable的数据序列，" +
                 "这个序列或者是无限的，或者通过repeat(n)指定重复次数。\n" +
                 "repeat操作符默认在trampoline调度器上执行。有一个变体可以通过可选参数指定Scheduler。");
-        mSampleResult.setText("repeat\n");
-        Observable.just(1, 2, 3)
-                .repeat(3)
-                .subscribe(new Subscriber<Integer>() {
-                    @Override
-                    public void onCompleted() {
-                        mSampleResult.append("Sequence complete." + "\n");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        mSampleResult.append("Error: " + e.getMessage() + "\n");
-                    }
-
-                    @Override
-                    public void onNext(Integer integer) {
-                        mSampleResult.append("Next: " + integer + "\n");
-                    }
-                });
-        mSampleResult.append("\nrepeatWhen:" + "\n");
+//        mSampleResult.setText("repeat\n");
+//        Observable.just(1, 2, 3)
+//                .repeat(3)
+//                .subscribe(new Subscriber<Integer>() {
+//                    @Override
+//                    public void onCompleted() {
+//                        mSampleResult.append("Sequence complete." + "\n");
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        mSampleResult.append("Error: " + e.getMessage() + "\n");
+//                    }
+//
+//                    @Override
+//                    public void onNext(Integer integer) {
+//                        mSampleResult.append("Next: " + integer + "\n");
+//                    }
+//                });
+        mSampleResult.setText("repeatWhen:" + "\n");
         Observable.just(1, 2, 3)
                 .repeatWhen(new Func1<Observable<? extends Void>, Observable<?>>() {
                     @Override
                     public Observable<?> call(Observable<? extends Void> observable) {
-                        return Observable.never();
+                        return observable.zipWith(Observable.range(1, 3), new Func2<Void, Integer, Integer>() {
+                            @Override
+                            public Integer call(Void aVoid, Integer integer) {
+                                return integer;
+                            }
+                        }).flatMap(new Func1<Integer, Observable<?>>() {
+                            @Override
+                            public Observable<?> call(Integer integer) {
+                                Logger.i("repeatWhen: " + integer);
+                                // 在repeat时线程会被切换到计算线程池
+                                return Observable.timer(2, TimeUnit.SECONDS);
+                            }
+                        });
                     }
-                })
-                .subscribe(new Subscriber<Integer>() {
+                }).subscribe(new Subscriber<Integer>() {
                     @Override
                     public void onCompleted() {
-                        Logger.w("onCompleted");
-                        mSampleResult.append("Sequence complete." + "\n");
+                        Logger.d("Sequence complete.");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Logger.e(e.getMessage());
-                        mSampleResult.append("Error: " + e.getMessage() + "\n");
+                        Logger.e("Error: " + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Integer integer) {
                         Logger.i("Next: " + integer);
-                        mSampleResult.append("Next: " + integer + "\n");
                     }
                 });
     }

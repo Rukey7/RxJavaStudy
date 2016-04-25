@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Logger.init("TAG").hideThreadInfo();
+        Logger.init("TAG");
         initToolBar(mToolbar, false, R.string.app_name);
         initViews();
     }

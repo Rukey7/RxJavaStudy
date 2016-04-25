@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RxJavaSmaple</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="app_content">RxJava Sample</string>
+    <string name="git_url">https://github.com/Rukey7/RxJavaStudy.git</string>
+</resources>

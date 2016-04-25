@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -102,5 +103,14 @@ public abstract class BaseActivity extends AppCompatActivity {
             // 设置Activity退出动画为从左往右退出
             overridePendingTransition(R.anim.hold_long, R.anim.move_right_out_activity);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
