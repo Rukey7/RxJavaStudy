@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".activity.CombineActivity">
         </activity>
+        <activity android:name=".activity.ErrorHandlingActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -11,13 +11,18 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.dl7.rxjavasmaple.activity.CombineActivity;
+import com.dl7.rxjavasmaple.activity.ErrorHandlingActivity;
 import com.dl7.rxjavasmaple.activity.FilterActivity;
 import com.orhanobut.logger.Logger;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static String[] mTitles = new String[] {
+            "Creating 创建操作", "Transforming 变换操作", "Filtering 过滤操作", "Combining 结合操作",
+            "Error Handling 错误处理", "Utility 辅助操作", "Conditional 条件和布尔操作", "Mathematical 算术和聚合操作",
+            "Async 异步操作", "Connect 连接操作", "Convert 转换操作", "Blocking 阻塞操作", "String 字符串操作"
+    };
     private RecyclerView mRvList;
 
 
@@ -27,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initViews();
         Logger.init("AndroidTag");
-        startActivity(new Intent(MainActivity.this, CombineActivity.class));
+        startActivity(new Intent(MainActivity.this, ErrorHandlingActivity.class));
     }
 
     private void initViews() {
