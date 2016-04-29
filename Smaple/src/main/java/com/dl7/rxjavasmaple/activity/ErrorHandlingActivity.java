@@ -107,6 +107,7 @@ public class ErrorHandlingActivity extends BaseActivity {
                 subscriber.onNext(1);
                 subscriber.onNext(2);
                 subscriber.onError(new Throwable("Error"));
+//                subscriber.onError(new Exception("Exception"));
             }
         });
         //1

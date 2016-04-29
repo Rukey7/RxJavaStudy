@@ -11,7 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.dl7.rxjavasmaple.activity.ErrorHandlingActivity;
+import com.dl7.rxjavasmaple.activity.ConnectActivity;
 import com.dl7.rxjavasmaple.activity.FilterActivity;
 import com.orhanobut.logger.Logger;
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initViews();
         Logger.init("AndroidTag");
-        startActivity(new Intent(MainActivity.this, ErrorHandlingActivity.class));
+        startActivity(new Intent(MainActivity.this, ConnectActivity.class));
     }
 
     private void initViews() {

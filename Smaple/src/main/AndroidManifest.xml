@@ -23,6 +23,14 @@
         </activity>
         <activity android:name=".activity.ErrorHandlingActivity">
         </activity>
+        <activity android:name=".activity.UtilityActivity">
+        </activity>
+        <activity android:name=".activity.ConditionalActivity">
+        </activity>
+        <activity android:name=".activity.MathematicalActivity">
+        </activity>
+        <activity android:name=".activity.ConnectActivity">
+        </activity>
     </application>
 
 </manifest>
